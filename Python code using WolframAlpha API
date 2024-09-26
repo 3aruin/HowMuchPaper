@@ -1,0 +1,14 @@
+import wolframalpha
+
+# WolframAlpha API key
+app_id = 'YOUR_APP_ID'
+
+# Query for number of working days in last 30 days
+query = 'number of working days in the last 30 days'
+
+client = wolframalpha.Client(app_id)
+res = client.query(query)
+
+# Extract the result
+working_days = next(res.results).text
+print(f"Number of working days: {working_days}")
