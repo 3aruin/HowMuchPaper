@@ -1,6 +1,9 @@
 ## HowMuchPaper
 Old School Copier needs more paper before they running out!
 
+With a fleet of printers always buying paper is a pain.
+The goal is to get to know how much paper you need. 
+
 
 ## How to Run the Code: DON'T
 Ensure you have the wolframalpha Python package installed:
@@ -12,6 +15,18 @@ Run the script, and it will output the required number of cases of paper based o
 
 
 ## Goals
+
+The aim is to find out the Monday - Friday paper use based on numbers reported by printers
+
+      As this information can be found in many ways will build to meet my needs but also to just work*
+      
+            Ideally being able to pull from SNMP and get rolling number would be great
+            
+            But know the buffer
+                  * How does it take to get more paper
+                  * How much does need shif in a year
+
+
 TBD
 ### HowMuchPaper_directory/
 
@@ -31,4 +46,4 @@ TBD
       │           └── files/          # App files (if needed)
       └── hosts                       # Inventory file with server info
 
-y
+y not*
