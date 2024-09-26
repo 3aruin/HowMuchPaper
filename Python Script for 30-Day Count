@@ -1,0 +1,17 @@
+# Variables
+number_of_printers = 17
+sheets_per_printer_per_day = 100
+days = 30
+sheets_per_ream = 500
+reams_per_case = 10
+buffer_percentage = 0.10
+
+# Calculations
+total_sheets = number_of_printers * sheets_per_printer_per_day * days
+total_reams = total_sheets / sheets_per_ream
+total_cases = total_reams / reams_per_case
+
+# Adding buffer
+total_cases_with_buffer = total_cases * (1 + buffer_percentage)
+
+print(f"Total cases needed (with buffer): {round(total_cases_with_buffer, 2)}")
