@@ -1,0 +1,3 @@
+Flask==2.0.2
+wolframalpha==4.3.0
+watchdog==2.1.6
