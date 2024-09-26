@@ -1,1 +1,61 @@
+---
+# Install Docker
+- name: Install Docker
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
 
+- name: Add Docker’s official GPG key
+  command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+- name: Set up the stable Docker repository
+  command: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+- name: Install Docker CE
+  apt:
+    name: docker-ce
+    state: present
+    update_cache: yes
+
+- name: Start Docker and enable it at boot
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+# Install Docker Compose
+- name: Install Docker Compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m`"
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+
+# Create the app directory
+- name: Create app directory
+  file:
+    path: /home/{{ ansible_user }}/flask_app
+    state: directory
+
+# Copy Flask app files
+- name: Copy Flask app files to remote server
+  copy:
+    src: "{{ item }}"
+    dest: /home/{{ ansible_user }}/flask_app/
+  with_items:
+    - "{{ playbook_dir }}/../app/Dockerfile"
+    - "{{ playbook_dir }}/../app/app.py"
+    - "{{ playbook_dir }}/../app/watchdog_script.py"
+    - "{{ playbook_dir }}/../app/requirements.txt"
+    - "{{ playbook_dir }}/../docker-compose.yml"
+
+# Build and run the Docker container
+- name: Build and start the Flask app with Docker Compose
+  shell: docker-compose up --build -d
+  args:
+    chdir: /home/{{ ansible_user }}/flask_app
