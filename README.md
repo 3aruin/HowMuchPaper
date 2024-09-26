@@ -2,7 +2,7 @@
 Old School Copier needs more paper before they running out!
 
 
-## How to Run the Code:
+## How to Run the Code: DON'T
 Ensure you have the wolframalpha Python package installed:
 
       pip install wolframalpha
