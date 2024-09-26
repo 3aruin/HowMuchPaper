@@ -2,10 +2,14 @@ version: "3.8"
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile  # Specify the Dockerfile location
     ports:
-      - "5000:5000"
+      - "5000:5000"           # Map host port 5000 to container port 5000
     volumes:
-      - .:/app  # Mount the current directory to /app in the container
+      - ./app:/app            # Mount local app directory to /app in the container
     environment:
-      FLASK_ENV: development  # Enable Flask auto-reload in development mode
+      FLASK_ENV: development   # Set Flask environment to development for auto-reload
+      FLASK_APP: app.py        # Set the main entry point of the Flask application
+    restart: unless-stopped    # Automatically restart the container unless stopped
