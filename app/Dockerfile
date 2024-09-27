@@ -11,11 +11,17 @@ WORKDIR /app
 # Copy the current directory contents into the container
 COPY . /app
 
+# Copy the requirements.txt file into the container
+COPY requirements.txt /app/
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port 5000 for Flask app
 EXPOSE 5000
+
+# Set the entry point for the application
+CMD ["python", "app.py"]
 
 # Run the Flask app with auto-reload using Flask’s development server
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
