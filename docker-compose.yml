@@ -13,3 +13,19 @@ services:
       FLASK_ENV: development   # Set Flask environment to development for auto-reload
       FLASK_APP: app.py        # Set the main entry point of the Flask application
     restart: unless-stopped    # Automatically restart the container unless stopped
+
+# Add a database service if needed (for example, PostgreSQL)
+db:
+  image: postgres:latest
+    environment:
+      POSTGRES_USER: user      # Replace with your own values
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: paperdb
+    volumes:
+      - ./db_data:/var/lib/postgresql/data  # Persist data
+    restart: unless-stopped
+
+# Network setup (optional, depends on the app’s need for multiple services)
+networks:
+  default:
+    driver: bridge
