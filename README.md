@@ -54,5 +54,3 @@ If you find HowMuchPaper helpful, please consider giving it a ⭐️ to show you
 ## 🏅 Thanks to All Contributors
 
 Thank you to everyone who has contributed to the development of Linutil. Your efforts are greatly appreciated, and you’re helping make this tool better for everyone!
-
-[![Contributors]((https://contrib.rocks/image?repo=3aruin/HowMuchPaper))](https://github.com/3aruin/HowMuchPaper/graphs/contributors)
