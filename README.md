@@ -28,7 +28,7 @@ The aim is to find out the Monday - Friday paper use based on numbers reported b
 
 
 TBD
-### HowMuchPaper_directory/
+## HowMuchPaper_directory
 
       ├── app/                        # Flask app files
       │   ├── app.py                  # Flask app main code
@@ -45,5 +45,3 @@ TBD
       │           │   ├── main.yml    # Task to deploy Docker, app
       │           └── files/          # App files (if needed)
       └── hosts                       # Inventory file with server info
-
-y not*
