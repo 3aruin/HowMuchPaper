@@ -24,4 +24,4 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 
 # Run the Flask app with auto-reload using Flask’s development server
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD ["flask", "run", "--host=127.0.0.1", "--port=5000"]
